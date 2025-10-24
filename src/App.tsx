@@ -1,24 +1,23 @@
+import Navigation from './components/Navigation';
 import Hero from './components/Hero';
+import Download from './components/Download';
 import ProblemSolution from './components/ProblemSolution';
-import DemoPreview from './components/DemoPreview';
-import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
-import UseCases from './components/UseCases';
+import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
-import Benefits from './components/Benefits';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
       <Hero />
+      <Download variant="primary" />
       <ProblemSolution />
-      <DemoPreview />
-      <HowItWorks />
       <Features />
-      <UseCases />
+      <Testimonials />
       <Pricing />
-      <Benefits />
+      <Download variant="secondary" />
       <Footer />
     </div>
   );

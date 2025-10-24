@@ -1,8 +1,22 @@
-import { Brain, ArrowRight, Calendar, Heart, ListTodo } from 'lucide-react';
+import { Brain, ArrowRight, Calendar, Heart, ListTodo, Download } from 'lucide-react';
 
 export default function Hero() {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0b3d91] via-[#1a5bb8] to-[#2db67f] overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0b3d91] via-[#1a5bb8] to-[#2db67f] overflow-hidden pt-20">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNiIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDUpIi8+PC9nPjwvc3ZnPg==')] opacity-30"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -15,8 +29,12 @@ export default function Hero() {
             MEMENTOR
           </h1>
 
-          <p className="text-xl sm:text-2xl lg:text-3xl text-blue-100 mb-8 font-light">
+          <p className="text-xl sm:text-2xl lg:text-3xl text-blue-100 mb-4 font-light">
             Tu asistente de memoria offline
+          </p>
+
+          <p className="text-base sm:text-lg text-blue-200 mb-2">
+            Disponible en iOS y Android
           </p>
 
           <p className="text-lg sm:text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
@@ -24,12 +42,19 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="group bg-white text-[#0b3d91] px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2">
-              Probar demo ahora
+            <button
+              onClick={() => scrollToSection('descargar')}
+              className="group bg-white text-[#0b3d91] px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center gap-2"
+            >
+              <Download className="w-5 h-5" />
+              Descargar Gratis
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0b3d91] transition-all duration-300 transform hover:scale-105">
+            <button
+              onClick={() => scrollToSection('caracteristicas')}
+              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0b3d91] transition-all duration-300 transform hover:scale-105"
+            >
               Ver cómo funciona
             </button>
           </div>
